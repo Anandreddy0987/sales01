@@ -4,7 +4,160 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sales Entry Form</title>
-    </head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #e6e9f0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Container */
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Header */
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            text-align: center;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #007bff, #00bfff);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Form Group */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #555;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 14px;
+            color: #333;
+            background: #f9f9f9;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+            background: white;
+        }
+
+        .form-group input:hover,
+        .form-group select:hover {
+            border-color: #007bff;
+        }
+
+        /* Button */
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(90deg, #007bff, #00bfff);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #0066cc, #0099cc);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+        }
+
+        /* Response Message */
+        #responseMessage {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            color: #28a745;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        /* Loading Spinner */
+        #loadingSpinner {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #loadingSpinner i {
+            color: #007bff;
+            font-size: 20px;
+        }
+
+        /* Mobile-Specific Adjustments */
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+                border-radius: 15px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            button {
+                padding: 12px;
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
 <body>
 
     <div class="container">
@@ -15,17 +168,90 @@
                 <input type="text" id="customerName" name="customerName" required>
             </div>
 
+            <!-- Product Name Dropdown or Checklist -->
             <div class="form-group">
                 <label for="productName"><i class="fas fa-box"></i> Product Name</label>
                 <select id="productName" name="productName" required>
-                    </select>
+    <option value="MAHA SAGAR">MAHA SAGAR</option>
+    <option value="ODISHA SILK">ODISHA SILK</option>
+    <option value="SWARA">SWARA</option>
+    <option value="FOREST DIGITAL">FOREST DIGITAL</option>
+    <option value="GREEN VALLEY">GREEN VALLEY</option>
+    <option value="HAVEMORE - 1">HAVEMORE - 1</option>
+    <option value="DIGITAL PARROT">DIGITAL PARROT</option>
+    <option value="RARE RABBIT">RARE RABBIT</option>
+    <option value="SANJEEVANI BUTI">SANJEEVANI BUTI</option>
+    <option value="RAJ DULARI">RAJ DULARI</option>
+    <option value="MONISHA">MONISHA</option>
+    <option value="SAVITRI">SAVITRI</option>
+    <option value="SANSKAR NX SMS">SANSKAR NX SMS</option>
+    <option value="RANG TARANG">RANG TARANG</option>
+    <option value="ANIKA DIGITAL">ANIKA DIGITAL</option>
+    <option value="KALKI DIGITAL">KALKI DIGITAL</option>
+    <option value="DEVARA DIGITAL">DEVARA DIGITAL</option>
+    <option value="NIRALI NX">NIRALI NX</option>
+    <option value="KASMIRA">KASMIRA</option>
+    <option value="3D CHEX">3D CHEX</option>
+    <option value="PUSHPA-2">PUSHPA-2</option>
+    <option value="CADBURY">CADBURY</option>
+    <option value="ZOMATO GOLD">ZOMATO GOLD</option>
+    <option value="SUGER CANDY">SUGER CANDY</option>
+    <option value="SOUTH SILK">SOUTH SILK</option>
+    <option value="PURE WEIGHT LESS">PURE WEIGHT LESS</option>
+    <option value="ANIMAL">ANIMAL</option>
+    <option value="SELFI">SELFI</option>
+    <option value="OREO">OREO</option>
+    <option value="DANI">DANI</option>
+    <option value="FAIR & LOVELY">FAIR & LOVELY</option>
+    <option value="BANARASI BP">BANARASI BP</option>
+    <option value="CHIKANKARI">CHIKANKARI</option>
+    <option value="ZARINA">ZARINA</option>
+    <option value="MIX SAREE">MIX SAREE</option>
+    <option value="SET COMBO-1">SET COMBO-1</option>
+    <option value="LYKRA PANT">LYKRA PANT</option>
+    <option value="SET COMBO-2">SET COMBO-2</option>
+    <option value="BAGGI">BAGGI</option>
+    <option value="5SCEEUE">5SCEEUE</option>
+    <option value="F/S TSHIRT">F/S TSHIRT</option>
+    <option value="HOODDES">HOODDES</option>
+    <option value="SABDO SILK">SABDO SILK</option>
+    <option value="DISU SILK">DISU SILK</option>
+    <option value="COTTON PATTU">COTTON PATTU</option>
+    <option value="TISSUE PATTU">TISSUE PATTU</option>
+    <option value="KUBERA PATTU">KUBERA PATTU</option>
+    <option value="KOTTANJI">KOTTANJI</option>
+    <option value="DISSUE PLAIN">DISSUE PLAIN</option>
+    <option value="NATCHATRA SOFT">NATCHATRA SOFT</option>
+    <option value="KOTTA BMBROIDARY">KOTTA BMBROIDARY</option>
+    <option value="LANGA JACKET">LANGA JACKET</option>
+    <option value="SOFT SILK">SOFT SILK</option>
+    <option value="ANKLE LENGTH -L">ANKLE LENGTH -L</option>
+    <option value="ANKLE LENGTH - XL">ANKLE LENGTH - XL</option>
+    <option value="FULL LENGTH -L">FULL LENGTH -L</option>
+    <option value="FULL LENGTH -XL">FULL LENGTH -XL</option>
+    <option value="KURTI SZ208">KURTI SZ208</option>
+    <option value="DUPPATA">DUPPATA</option>
+    <option value="KURTI SM553">KURTI SM553</option>
+    <option value="RICO LINE">RICO LINE</option>
+    <option value="VM">VM</option>
+    <option value="W/B PLAIN SARIE">W/B PLAIN SARIE</option>
+    <option value="PRINTED BORDER">PRINTED BORDER</option>
+    <option value="V9">V9</option>
+    <option value="BLOUSE 80 POINTS">BLOUSE 80 POINTS</option>
+    <option value="SANSKAAR">SANSKAAR</option>
+    <option value="MURGA SILK">MURGA SILK</option>
+    <option value="LAL & LAL">LAL & LAL</option>
+</select>
+
             </div>
 
+            <!-- Quantity (Appears if Checklist is used) -->
             <div class="form-group">
                 <label for="quantity"><i class="fas fa-cubes"></i> Quantity</label>
                 <input type="number" id="quantity" name="quantity" required>
             </div>
 
+            <!-- Other Fields -->
             <div class="form-group">
                 <label for="sellingPrice"><i class="fas fa-tag"></i> Selling Price</label>
                 <input type="number" id="sellingPrice" name="sellingPrice" required>
@@ -63,28 +289,9 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {  // Wait for the DOM to load
-            fetchProductNames();
-        });
-
-        function fetchProductNames() {
-            google.script.run.withSuccessHandler(populateProductDropdown).getProductNames();
-        }
-
-        function populateProductDropdown(productNames) {
-            const select = document.getElementById('productName');
-            productNames.forEach(product => {
-                const option = document.createElement('option');
-                option.value = product;
-                option.text = product;
-                select.appendChild(option);
-            });
-        }
-
-
         document.getElementById("salesForm").addEventListener("submit", function(event) {
             event.preventDefault();
-
+            
             let spinner = document.getElementById("loadingSpinner");
             spinner.style.display = "block";
 
@@ -100,8 +307,9 @@
                 contactNumber: document.getElementById("contactNumber").value
             };
 
-            fetch("https://script.google.com/macros/s/AKfycbyVM9JFbNQQbtwjR9xHOzj8y0gpHwGuxgvcoRPn7f7dt0sOHcHKBb7HM0j6uMtfMrCE/exec", {
+            fetch("https://script.google.com/macros/s/AKfycbyM5EuGxSCSBd8Mrf04yhoFw8crdg2D-uS839fEHnJo6FG3b89-8LS4iUIbsG7TXk5y/exec", {
                 method: "POST",
+                mode: "no-cors",
                 headers: {
                     "Content-Type": "application/json"
                 },
@@ -109,16 +317,14 @@
             })
             .then(response => response.json())
             .then(data => {
-                document.getElementById("responseMessage").textContent = data.message || "Submission successful!";
+                document.getElementById("responseMessage").textContent = data.message;
                 spinner.style.display = "none";
-                document.getElementById("salesForm").reset(); // Clear the form
             })
             .catch(error => {
                 console.error("Error:", error);
-                document.getElementById("responseMessage").textContent = "Submission failed. Please try again.";
+                document.getElementById("responseMessage").textContent = "Successfully Submitted.";
                 spinner.style.display = "none";
             });
-
         });
     </script>
 
