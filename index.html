@@ -308,24 +308,29 @@
             };
 
             fetch("https://script.google.com/macros/s/AKfycbyVM9JFbNQQbtwjR9xHOzj8y0gpHwGuxgvcoRPn7f7dt0sOHcHKBb7HM0j6uMtfMrCE/exec", {
-                method: "POST",
-                mode: "no-cors",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(formData)
-            })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById("responseMessage").textContent = data.message;
-                spinner.style.display = "none";
-            })
-            .catch(error => {
-                console.error("Error:", error);
-                document.getElementById("responseMessage").textContent = "Successfully Submitted.";
-                spinner.style.display = "none";
-            });
-        });
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(formData)
+})
+.then(response => {
+    if (response.ok) {
+        return response.json(); // Return response as JSON
+    } else {
+        throw new Error('Something went wrong');
+    }
+})
+.then(data => {
+    document.getElementById("responseMessage").textContent = data.message || "Submission successful!";
+    spinner.style.display = "none";
+})
+.catch(error => {
+    console.error("Error:", error);
+    document.getElementById("responseMessage").textContent = "Submission failed. Please try again.";
+    spinner.style.display = "none";
+});
+
     </script>
 
 </body>
